@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.btn {
+  transition: all 0.5s ease !important;
+}
+
+.btn:hover {
+  background-color: #282D35 !important;
+  color: white !important;
+}
+
+.btn:active {
+  background-color: white !important;
+  color: #282D35 !important;
+}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import { FetchData } from './components/fetch';
+import { FetchData2 } from './components/fetch2';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
         toggle && <h2>Welcome to Little Lemon</h2>
       }
       <FetchData />
+      <FetchData2 />
     </div>
   );
 }
