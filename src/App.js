@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
@@ -9,6 +9,10 @@ function App() {
   const handleClick = () => {
     setToggle(!toggle);
   }
+
+  useEffect(() => {
+    document.title = toggle ? "Welcome to little Lemon" : "Using the useEffect hook";
+  })
 
   return (
     <div className="App">
