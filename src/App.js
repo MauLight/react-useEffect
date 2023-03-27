@@ -13,7 +13,10 @@ function App() {
   return (
     <div className="App">
       <h1>{title}</h1>
-      <button onClick={handleClick} className="btn border rounded-0" ></button>
+      <button onClick={handleClick} className="btn border rounded-0" >Click me!</button>
+      {
+        toggle && <h2>Welcome to Little Lemon</h2>
+      }
     </div>
   );
 }
