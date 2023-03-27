@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import { FetchData } from './components/fetch';
 
 function App() {
 
@@ -12,7 +13,7 @@ function App() {
 
   useEffect(() => {
     document.title = toggle ? "Welcome to little Lemon" : "Using the useEffect hook";
-  })
+  }, [toggle])
 
   return (
     <div className="App">
@@ -21,6 +22,7 @@ function App() {
       {
         toggle && <h2>Welcome to Little Lemon</h2>
       }
+      <FetchData />
     </div>
   );
 }
