@@ -12,7 +12,7 @@ export const FetchData = () => {
     };
 
     useEffect(() => {
-        console.log(btcData);
+        //console.log(btcData);
         handleData();
     }, []);
 

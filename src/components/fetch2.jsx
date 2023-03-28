@@ -16,7 +16,7 @@ export const FetchData2 = () => {
     }, []);
 
     useEffect(() => {
-        console.log(userData);
+        //console.log(userData);
     }, [userData.results]);
 
     return (
