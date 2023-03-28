@@ -5,47 +5,53 @@ import { useEffect, useState } from "react";
 export const FetchData3 = () => {
     const [data, setData] = useState("");
 
-    const style = {"width": "18rem"};
+    const style = { "width": "18rem" };
 
     useEffect(() => {
         handleFetch();
-    });
+    }, []);
 
     const handleFetch = () => {
         const fetchPromise = fetch('https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json');
         //console.log(fetchPromise);
+        console.log("request started");
 
-        fetchPromise.then((response) => {
-            const jsonPromise = response.json();
-            jsonPromise.then((data) => {
-                console.log(data);
+        fetchPromise
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error: ${response.status}`)
+                }
+                console.log(`Received response: ${response.status}`);
+                return response.json()
+            })
+            .then((data) => {
+                //console.log(data);
                 setData(data);
             })
-            console.log(`Received response: ${response.status}`)
-        });
+            .catch((error) => {
+                console.log(`Could not get data: ${error}`);
+            });
+    };
 
-        console.log("request started");
-    }
-
-    return (
-        <div className="row d-flex justify-content-between p-5">
-            {
-                data ? data.map((elem) => {
-                    return (
-                        <div class="card" style={style}>
-                            <img src={elem.image} class="card-img-top" alt="food" />
-                            <div class="card-body">
-                                <h5 class="card-title">{elem.name}</h5>
-                                <p class="card-text">{elem.type}</p>
-                                <p class="card-text">{elem.price}</p>
-                            </div>
+return (
+    <div className="row d-flex justify-content-between p-5">
+        {
+            data ? data.map((elem) => {
+                return (
+                    <div className="card" key={elem.name} style={style}>
+                        <img src={elem.image} className="card-img-top" alt="food" />
+                        <div className="card-body">
+                            <h5 className="card-title">{elem.name}</h5>
+                            <p className="card-text">{elem.type}</p>
+                            <p className="card-text">US$ {elem.price}</p>
                         </div>
-                    )
-                })
+                    </div>
+                )
+            })
                 :
                 <h1>Loading...</h1>
-            }
-        </div>
-    )
-};
+        }
+    </div>
+)
+    }
 
