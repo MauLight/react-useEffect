@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import { FetchData } from './components/fetch';
 import { FetchData2 } from './components/fetch2';
+import { FetchData3 } from './components/fetch3';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
       }
       <FetchData />
       <FetchData2 />
+      <FetchData3 />
     </div>
   );
 }
